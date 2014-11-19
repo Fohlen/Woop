@@ -36,7 +36,7 @@ class woopsquadtemplate extends basesquadtemplate
 		$html[] = '<dl id="plist">';
 
 		foreach ($groups as $group) {
-			$html[] = '<dt>' .key($groups). '</dt>'; // Group title
+			$html[] = '<dt style="color: #fff;">' .key($groups). '</dt>'; // Group title
 			
 			foreach ($group as $member) {
 				$html[] = '<dd><a href="#'.$member->membername.'"><span class="i"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'"></span><span>'.$member->membername.'</span></a></dd>';
@@ -51,7 +51,7 @@ class woopsquadtemplate extends basesquadtemplate
 		
 		foreach($this->squad->members as $member) {
 			
-			$html[] = '<h2><a name="'.$member->membername.'</a>" href="#'.$member->membername.'">'.$member->membername.'</a></h2>';
+			$html[] = '<h2><a name="'.$member->membername.'" href="#'.$member->membername.'">'.$member->membername.'</a></h2>';
 			$html[] = '<dl class="p_stats">';
 			$html[] = '<dd class="dim"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'"></dd>';
 			/*foreach ($this->fieldlist as $field) 

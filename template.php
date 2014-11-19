@@ -32,6 +32,7 @@ class woopsquadtemplate extends basesquadtemplate
 			$groups[$role][] = $member;
 		}
 		
+		$html[] = '<div style="clear:both;">&nbsp;</div>';
 		$html[] = '<dl id="plist">';
 
 		foreach ($groups as $group) {
@@ -44,7 +45,7 @@ class woopsquadtemplate extends basesquadtemplate
 		
 		$html[] = '</dl>';
 		$html[] = '<div style="clear:both;">&nbsp;</div>';
-		$html[] = '<hr>';
+		$html[] = '<hr style=" background-color: #747474; ">';
 		$html[] = '<div style="clear:both;">&nbsp;</div>';
 
 		

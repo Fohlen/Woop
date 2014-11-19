@@ -28,7 +28,7 @@ class woopsquadtemplate extends basesquadtemplate
 		
 		// Categorize users within groups
 		foreach($this->squad->members as $member) {
-			$role = $this->getSquadMemberRole($member);
+			$role = substr($this->getSquadMemberRole($member), 5, strlen($this->getSquadMemberRole($member))); // Strip the first 5 chars because they're always: "Role: "
 			$groups[$role][] = $member;
 		}
 		
@@ -38,15 +38,17 @@ class woopsquadtemplate extends basesquadtemplate
 			$html[] = '<dt>' .key($groups). '</dt>'; // Group title
 			
 			foreach ($group as $member) {
-				$html[] = '<dd><a href="#'.$member->membername.'"><span class="i"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).' alt="'.$member->membername.'"></span><span class="n g3">'.$member->membername.'</span></a></dd>';
+				$html[] = '<dd><a href="#'.$member->membername.'"><span class="i"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'"></span><span class="n g3">'.$member->membername.'</span></a></dd>';
 			}
 		}
 		
 		$html[] = '</dl>';
 		
-		/*foreach($this->squad->members as $member) {
+		foreach($this->squad->members as $member) {
 			
-		}*/
+		}
+		
+		echo implode("\n", $html);
 	}
 }
 

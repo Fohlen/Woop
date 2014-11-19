@@ -28,7 +28,7 @@ class woopsquadtemplate extends basesquadtemplate
 		
 		// Categorize users within groups
 		foreach($this->squad->members as $member) {
-			$role = substr($this->getSquadMemberRole($member), 5, strlen($this->getSquadMemberRole($member))); // Strip the first 5 chars because they're always: "Role: "
+			$role = substr($this->getSquadMemberRole($member), 6, strlen($this->getSquadMemberRole($member))); // Strip the first 6 chars because they're always: "Role: "
 			$groups[$role][] = $member;
 		}
 		
@@ -55,13 +55,16 @@ class woopsquadtemplate extends basesquadtemplate
 			$html[] = '<dd class="dim"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'"></dd>';
 			/*foreach ($this->fieldlist as $field) 
 			{
-				$html[] = '		<div class="squadlisttemplate_squadmember_details_field">';
+				$html[] = '<dd>';
 				$html[] = $this->renderField($field,$member);
-				$html[] = '		</div>';		
+				$html[] = '</dd>';		
 			}*/
 			
 			$html[] = '<dd>'$this->getLastSquadMemberOnline($member);'</dd>';
 			$html[] = '</dl>';
+			
+			if ($member->description != '') $html[] = $member->description;
+			
 			$html[] = '<hr class="ul">'; // Separate the profiles though
 		}
 		

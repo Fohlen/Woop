@@ -35,15 +35,17 @@ class woopsquadtemplate extends basesquadtemplate
 		$html[] = '<div style="clear:both;">&nbsp;</div>';
 		$html[] = '<dl id="plist">';
 
-		foreach ($groups as $group) {
+	
+		for ($i = 0; $i < count($groups); $i++) {
 			$html[] = '<dt style="color: #fff;">' .key($groups). '</dt>'; // Group title
 			
-			foreach ($group as $member) {
+			foreach(current($groups) as $member) {
 				$html[] = '<dd><a href="#'.$member->membername.'"><span class="i"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'"></span><span>'.$member->membername.'</span></a></dd>';
 			}
 			
-			next($groups); // iterate the next item
+			next($groups);
 		}
+		
 		
 		$html[] = '</dl>';
 		$html[] = '<div style="clear:both;">&nbsp;</div>';

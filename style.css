@@ -1,6 +1,6 @@
 .clear { clear:both; height:1px; }
 
-.p_stats { float:right; clear:right; font-size:0.8em; margin:8px; border:1px solid #cccccc; padding:5px; }
+.p_stats { float:right; clear:right; font-size:0.8em; margin:8px; padding:5px; }
 .p_stats dt { font-weight:bold;}
 .p_stats dt:after { content:":"; }
 .p_stats dd {}
@@ -13,12 +13,11 @@ hr { border:1px solid gray; }
 hr.ul { border:1px solid white;clear:both;height:1px; }
 
 dl#plist { width:665px; margin-left:auto;margin-right:auto;}
-dl#plist dd { float:left; width:220px;height:220px;margin:0px;padding:0px; }
+dl#plist dd { float:left; width:220px;height:220px;margin:0px;padding:0px; color: #fff; }
 dl#plist dd a { background-image:url('wp_item_normal.png'); width:170px;height:170px;display:block;padding:25px;background-repeat:no-repeat; text-align:center;text-decoration:none;color:black; }
 dl#plist dd a:hover { background-image:url('wp_item_hover.png'); }
 dl#plist dd a span.i { height:150px; width:170px;display:block; }
 dl#plist dd a span.i img { max-width:170px;max-height:145px;border:0px; }
 dl#plist dd a span.n { display:block;font-family:Bitstream Vera Sans, sans-serif;font-size:16px;font-weight:bold;letter-spacing:-1px; }
 dl#plist dt { clear:both;font-family:"Trebuchet MS", sans-serif; font-weight:bold;font-size:21px; color: #fff; }
-
 

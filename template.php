@@ -45,7 +45,7 @@ class woopsquadtemplate extends basesquadtemplate
 		
 		$html[] = '</dl>';
 		$html[] = '<div style="clear:both;">&nbsp;</div>';
-		$html[] = '<hr style=" background-color: #747474; ">';
+		$html[] = '<hr style="background-color: #747474;">';
 		$html[] = '<div style="clear:both;">&nbsp;</div>';
 
 		
@@ -53,7 +53,7 @@ class woopsquadtemplate extends basesquadtemplate
 			
 			$html[] = '<h2><a name="'.$member->membername.'" href="#'.$member->membername.'">'.$member->membername.'</a></h2>';
 			$html[] = '<dl class="p_stats">';
-			$html[] = '<dd class="dim"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'"></dd>';
+			$html[] = '<dd class="dim"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'" style="border-radius: 10px;"></dd>';
 			/*foreach ($this->fieldlist as $field) 
 			{
 				$html[] = '<dd>';
@@ -61,12 +61,11 @@ class woopsquadtemplate extends basesquadtemplate
 				$html[] = '</dd>';		
 			}*/
 			
-			$html[] = '<dd>'.$this->getLastSquadMemberOnline($member).'</dd>';
+			$html[] = '<dt></dt><dd>'.$this->getLastSquadMemberOnline($member).'</dd>';
 			$html[] = '</dl>';
-			
 			if ($member->description != '') $html[] = $member->description;
 			
-			$html[] = '<hr class="ul">'; // Separate the profiles though
+			$html[] = '<hr style="background-color: #747474;">'; // Separate the profiles though
 		}
 		
 		echo implode("\n", $html);

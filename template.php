@@ -27,7 +27,7 @@ class woopsquadtemplate extends basesquadtemplate
 		$groups = array(); // Groups of people based on their role
 		
 		// Categorize users within groups
-        foreach(array_reverse($this->squad->members) as $member) {
+        foreach($this->squad->members as $member) {
 			$role = substr($this->getSquadMemberRole($member), 6, strlen($this->getSquadMemberRole($member))); // Strip the first 6 chars because they're always: "Role: "
 			$groups[$role][] = $member;
 		}
@@ -53,11 +53,11 @@ class woopsquadtemplate extends basesquadtemplate
 		$html[] = '<div style="clear:both;">&nbsp;</div>';
 
 		
-        foreach(array_reverse($this->squad->members) as $member) {
+        foreach($this->squad->members as $member) {
 			
 			$html[] = '<h2><a name="'.$member->membername.'" href="#'.$member->membername.'">'.$member->membername.'</a></h2>';
 			$html[] = '<dl class="p_stats">';
-			$html[] = '<dd class="dim"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'" style="border-radius: 10px;"></dd>';
+			$html[] = '<dd class="dim"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'" style="border-radius: 10px;" width="300px" height="auto"></dd>';
 			/*foreach ($this->fieldlist as $field) 
 			{
 				$html[] = '<dd>';

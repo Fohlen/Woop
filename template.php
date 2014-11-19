@@ -43,9 +43,26 @@ class woopsquadtemplate extends basesquadtemplate
 		}
 		
 		$html[] = '</dl>';
+		$html[] = '<div style="clear:both;">&nbsp;</div>';
+		$html[] = '<hr>';
+		$html[] = '<div style="clear:both;">&nbsp;</div>';
+
 		
 		foreach($this->squad->members as $member) {
 			
+			$html[] = '<h2><a name="'.$member->membername.'</a>" href="#'.$member->membername.'">'.$member->membername.'</a></h2>';
+			$html[] = '<dl class="p_stats">';
+			$html[] = '<dd class="dim"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'"></dd>';
+			/*foreach ($this->fieldlist as $field) 
+			{
+				$html[] = '		<div class="squadlisttemplate_squadmember_details_field">';
+				$html[] = $this->renderField($field,$member);
+				$html[] = '		</div>';		
+			}*/
+			
+			$html[] = '<dd>'$this->getLastSquadMemberOnline($member);'</dd>';
+			$html[] = '</dl>';
+			$html[] = '<hr class="ul">'; // Separate the profiles though
 		}
 		
 		echo implode("\n", $html);

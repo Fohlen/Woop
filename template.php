@@ -60,7 +60,7 @@ class woopsquadtemplate extends basesquadtemplate
 				$html[] = '</dd>';		
 			}*/
 			
-			$html[] = '<dd>'$this->getLastSquadMemberOnline($member);'</dd>';
+			$html[] = '<dd>'.$this->getLastSquadMemberOnline($member).'</dd>';
 			$html[] = '</dl>';
 			
 			if ($member->description != '') $html[] = $member->description;

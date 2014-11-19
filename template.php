@@ -41,6 +41,8 @@ class woopsquadtemplate extends basesquadtemplate
 			foreach ($group as $member) {
 				$html[] = '<dd><a href="#'.$member->membername.'"><span class="i"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'"></span><span>'.$member->membername.'</span></a></dd>';
 			}
+			
+			next($groups); // iterate the next item
 		}
 		
 		$html[] = '</dl>';

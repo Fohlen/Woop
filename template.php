@@ -40,7 +40,7 @@ class woopsquadtemplate extends basesquadtemplate
 			$html[] = '<dt style="color: #fff;">' .key($groups). '</dt>'; // Group title
 			
 			foreach(current($groups) as $member) {
-				$html[] = '<dd><a href="#'.$member->membername.'"><span class="i"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'"></span><span>'.$member->membername.'</span></a></dd>';
+				$html[] = '<dd><a href="#'.$member->membername.'"><span class="i"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).'" alt="'.$member->membername.'" width="249px" height="auto"></span><span>'.$member->membername.'</span></a></dd>';
 			}
 			
 			next($groups);

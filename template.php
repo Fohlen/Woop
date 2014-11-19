@@ -2,11 +2,9 @@
 /*------------------------------------------------------------------------
 # com_squadmanagement - Squadmanagement!
 # ------------------------------------------------------------------------
-# author    Lars Hildebrandt
-# copyright Copyright (C) 2012 Lars Hildebrandt. All Rights Reserved.
+# author    Lennard Berger
+# copyright Copyright (C) 2014 Lennard Berger. All Rights Reserved.
 # @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
-# Websites: http://joomla.larshildebrandt.de
-# Technical Support:  Forum - http://joomla.larshildebrandt.de/forum/index.html
 -------------------------------------------------------------------------*/
 
 // no direct access
@@ -15,7 +13,44 @@ defined('_JEXEC') or die('Restricted access');
 require_once(JPATH_SITE.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_squadmanagement'.DIRECTORY_SEPARATOR.'framework'.DIRECTORY_SEPARATOR.'basesquadtemplate.php');
 require_once JPATH_SITE.DIRECTORY_SEPARATOR.'administrator'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_squadmanagement'.DIRECTORY_SEPARATOR.'helpers'.DIRECTORY_SEPARATOR.'integrationhelper.php';
 
-class defaultsquadtemplate extends basesquadtemplate
+class woopsquadtemplate extends basesquadtemplate 
+{
+
+	public function renderTemplate()
+	{
+		$doc = JFactory::getDocument();
+
+		$cssHTML = JURI::base().'components/com_squadmanagement/templates/squad/Woop/style.css';
+		$doc->addStyleSheet($cssHTML);
+		
+		$html = array(); // The html we'd like to render
+		$groups = array(); // Groups of people based on their role
+		
+		// Categorize users within groups
+		foreach($this->squad->members as $member) {
+			$role = $this->getSquadMemberRole($member);
+			$groups[$role][] = $member;
+		}
+
+		$html[] = '<dl id="plist">';
+
+		foreach ($groups as $group) {
+			$html[] = '<dt>' . $group . '</dt>'; // Group title
+			
+			foreach ($group as $member) {
+				$html[] = '<dd><a href="#'.$member->membername.'"><span class="i"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).' alt="'.$member->membername.'"></span><span class="n g3">'.$member->membername.'</span></a></dd>';
+			}
+		}
+		
+		$html[] = '</dl>';
+		
+		/*foreach($this->squad->members as $member) {
+			
+		}*/	
+	}
+}
+
+/*class defaultsquadtemplate extends basesquadtemplate
 {
 	public function renderTemplate()
 	{
@@ -271,4 +306,4 @@ class defaultsquadtemplate extends basesquadtemplate
 		
 		return implode("\n", $html); 	
 	}
-}
+}*/

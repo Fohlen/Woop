@@ -19,5 +19,5 @@ dl#plist dd a:hover { background-image:url('wp_item_hover.png'); }
 dl#plist dd a span.i { height:150px; width:170px;display:block; }
 dl#plist dd a span.i img { max-width:170px;max-height:145px;border:0px; }
 dl#plist dd a span.n { display:block;font-family:Bitstream Vera Sans, sans-serif;font-size:16px;font-weight:bold;letter-spacing:-1px; }
-dl#plist dt { clear:both;font-family:"Trebuchet MS", sans-serif; font-weight:bold;font-size:21px; color: #fff; }
+dl#plist dt { clear:both;font-family:"Trebuchet MS", sans-serif; font-weight:bold;font-size:21px; }
 

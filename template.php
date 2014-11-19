@@ -31,11 +31,11 @@ class woopsquadtemplate extends basesquadtemplate
 			$role = $this->getSquadMemberRole($member);
 			$groups[$role][] = $member;
 		}
-
+		
 		$html[] = '<dl id="plist">';
 
 		foreach ($groups as $group) {
-			$html[] = '<dt>' . $group . '</dt>'; // Group title
+			$html[] = '<dt>' .key($groups). '</dt>'; // Group title
 			
 			foreach ($group as $member) {
 				$html[] = '<dd><a href="#'.$member->membername.'"><span class="i"><img src="'.IntegrationHelper::getFullAvatarImagePath($member->avatar).' alt="'.$member->membername.'"></span><span class="n g3">'.$member->membername.'</span></a></dd>';
@@ -46,7 +46,7 @@ class woopsquadtemplate extends basesquadtemplate
 		
 		/*foreach($this->squad->members as $member) {
 			
-		}*/	
+		}*/
 	}
 }
 
